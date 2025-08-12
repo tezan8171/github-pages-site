@@ -1,0 +1,35 @@
+:root {
+  --bg: #0b1220;
+  --fg: #e6edf3;
+  --accent: #3fb950;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, Arial, sans-serif;
+}
+.wrap {
+  max-width: 720px;
+  margin: 6vh auto;
+  padding: 2rem;
+}
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: .5rem;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.card {
+  background: #111828;
+  border: 1px solid #223;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
