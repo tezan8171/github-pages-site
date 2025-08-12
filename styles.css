@@ -1,109 +1,102 @@
-:root {
-  --bg: #0b1220;
-  --fg: #e6edf3;
-  --accent: #3fb950;
-}
-
-/* Base */
-html, body {
+/* Reset and Base Styles */
+* {
   margin: 0;
   padding: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: Inter, system-ui, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
   min-height: 100vh;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
   overflow-x: hidden;
-}
-
-/* Premium animated background glow */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -20% -10%;
-  background:
-    radial-gradient(600px 600px at 20% 25%, rgba(63,185,80,0.12), transparent 60%),
-    radial-gradient(700px 700px at 80% 30%, rgba(0,255,231,0.10), transparent 55%),
-    radial-gradient(600px 600px at 40% 85%, rgba(255,122,228,0.10), transparent 60%),
-    radial-gradient(900px 900px at 50% -10%, rgba(80,120,255,0.10), transparent 60%);
-  filter: blur(40px);
-  animation: float 18s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Content wrapper */
-.wrap {
-  max-width: 720px;
-  margin: 6vh auto 2vh;
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
   padding: 2rem;
 }
 
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: .5rem;
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+/* Existing content styling */
+.wrap {
+  max-width: 800px;
+  margin-top: 40px;
 }
 
 .card {
-  background: #111828;
-  border: 1px solid #223;
-  border-radius: 12px;
-  padding: 1.25rem;
-  margin-top: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin: 1rem 0;
 }
 
-/* Byline centered after content */
+/* Byline styling */
 .byline {
-  text-align: center;
-  margin: 24px auto 80px;
-  padding: 0 20px;
+  margin-top: 3rem;
 }
 
 .made-by {
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.9;
-  letter-spacing: 0.5px;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .credit {
-  font-weight: 600;
-  background: linear-gradient(90deg, #00ffe7, #3fb950, #ff7ae4);
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffb347);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: hue 8s linear infinite;
+  -webkit-text-fill-color: transparent;
+  animation: glow 5s ease-in-out infinite, shimmer 8s linear infinite;
 }
 
-/* Subtle entrance + color animations */
-.reveal {
+/* Glow and shimmer for premium look */
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(255,215,0,0.8), 0 0 20px rgba(255,215,0,0.6); }
+  50% { text-shadow: 0 0 20px rgba(255,215,0,1), 0 0 40px rgba(255,215,0,0.9); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Fade-in animations with delay */
+.fade-in {
   opacity: 0;
-  transform: translateY(8px);
-  animation: reveal 0.9s ease-out 0.2s forwards;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
 }
 
-@keyframes reveal {
+.fade-in.delay-1 { animation-delay: 0.3s; }
+.fade-in.delay-2 { animation-delay: 0.6s; }
+.fade-in.delay-3 { animation-delay: 0.9s; }
+.fade-in.delay-4 { animation-delay: 1.2s; }
+
+@keyframes fadeUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes hue {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
+/* Links */
+a {
+  color: #00ff99;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-@keyframes float {
-  0%   { transform: translate3d(0,0,0) scale(1); }
-  100% { transform: translate3d(0,-2%,0) scale(1.03); }
+a:hover {
+  color: #00ffaa;
 }
