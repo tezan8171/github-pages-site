@@ -3,6 +3,7 @@
   --fg: #e6edf3;
   --accent: #3fb950;
 }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -10,22 +11,58 @@ html, body {
   color: var(--fg);
   font-family: Inter, system-ui, Arial, sans-serif;
 }
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #0b1220, #121a2e);
+  color: var(--fg);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.name {
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #00ffe7;
+  transition: color 0.3s ease;
+}
+
+.name:hover {
+  color: #ff7ae4;
+  cursor: pointer;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  opacity: 0.85;
+  margin-top: 10px;
+}
+
+/* Main content */
 .wrap {
   max-width: 720px;
   margin: 6vh auto;
   padding: 2rem;
 }
+
 h1 {
   font-size: 2.2rem;
   margin-bottom: .5rem;
 }
+
 a {
   color: var(--accent);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
+
 .card {
   background: #111828;
   border: 1px solid #223;
